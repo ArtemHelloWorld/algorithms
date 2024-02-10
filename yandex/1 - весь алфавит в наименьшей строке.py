@@ -1,3 +1,11 @@
+"""
+Функция принимает строку, а возвращает пару индексов таких, что подмассив, ограниченный
+ими содержит весь алфавит данной строки, при том является минимальным.
+Под алфавитом подразумевается набор символов,
+каждый их которых хотя бы раз входит в изначальную строку
+"""
+
+
 def func(string: str) -> tuple[int, int]:
     """Два указателя | Время О(N) | Память O(K)"""
     len_set = len(set(string))
@@ -28,7 +36,6 @@ def func(string: str) -> tuple[int, int]:
     return minn_l, minn_r
 
 
-
 assert func('') == (0, 0)
 assert func('a') == (0, 0)
 assert func('aaaa') == (0, 0)
@@ -36,7 +43,3 @@ assert func('abcd') == (0, 3)
 assert func('aaccbabbccaa') == (3, 5)
 assert func('aaaabc') == (3, 5)
 assert func('abcaaa') == (0, 2)
-
-
-
-
