@@ -24,6 +24,21 @@ def func(arr: list) -> int:
     return maxx
 
 
+def func(nums: list) -> int:
+    """Словарь | O(N) | O(N) | больше памяти но чуть быстрее по времени"""
+    maxx = 0
+    counter = dict()
+    count_0 = 0
+    for i, x in enumerate(nums):
+        if x == 0:
+            count_0 += 1
+            counter[count_0] = i
+        if count_0 - 1 in counter:
+            maxx = max(maxx, i - counter[count_0 - 1] - 1)
+        else:
+            maxx = max(maxx, i)
+    return maxx
+
 assert func([]) == 0
 assert func([0, 0, 0]) == 0
 assert func([0, 0, 1]) == 1
